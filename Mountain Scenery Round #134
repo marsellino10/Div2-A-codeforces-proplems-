@@ -1,0 +1,38 @@
+#include <iostream>     // std::cout
+#include <algorithm>    // std::transform
+#include <vector>       // std::vector
+#include <functional>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <iomanip>
+#include <string.h>
+using namespace std;
+ 
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    int siz = (2*n)+1;
+    int *arr = new int [siz];
+    for(int i=0;i<siz;i++)
+    {
+        cin>>arr[i];
+    }
+    int i=1,count=0;
+    while(count<k)
+    {
+        if(arr[i] > (arr[i-1]+1) && arr[i] > (arr[i+1]+1))
+        {
+            arr[i]--;
+            count++;
+        }
+        i+=2;
+    }
+     for(int i=0;i<siz;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+ 
+}
