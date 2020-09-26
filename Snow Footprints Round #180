@@ -1,0 +1,57 @@
+#include <iostream>     // std::cout
+#include <algorithm>    // std::transform
+#include <vector>       // std::vector
+#include <functional>
+#include <cstring>
+#include <cmath>
+#include <math.h>
+#include <iomanip>
+#include <string.h>
+using namespace std;
+ 
+int main()
+{
+    int n;
+    cin>>n;
+    char s[1001];
+    for(int i=0;i<n;i++)
+    {
+        cin>>s[i];
+    }
+    int start,last;
+    for(int i=0;i<n;i++)
+    {
+        if(s[i] == '.' && s[i+1] == 'L')
+        {
+            last = i+1;
+            for(unsigned int j=last;s[j]!='.';j++)
+            {
+                start = j+1;
+            }
+ 
+            break;
+        }
+        if(s[i] == '.' && s[i+1] == 'R')
+        {
+            start = i+2;
+            int j = start;
+            while(1)
+            {
+                if(s[j] == 'L')
+                {
+                    last = j;
+                    break;
+                }
+                if(s[j] == '.')
+                {
+                    last = j + 1;
+                    break;
+                }
+                j++;
+            }
+             break;
+        }
+    }
+    cout <<start<<" "<<last;
+    return 0;
+}
